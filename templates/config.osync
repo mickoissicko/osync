@@ -1,0 +1,22 @@
+; this is a server that uses password auth
+; it does not use key-based auth
+;
+;SERVER:
+;    | HOST     -> 192.168.0.1
+;    | USER     -> Test
+;    | PASSWORD -> SecurePassword
+;this is a server that uses key-based auth
+;
+;SERVER:
+;    | HOST -> 192.168.0.1
+;    | USER -> Test
+;    | CODE -> SecureCode
+;    | KEY  -> ~/.ssh/id_rsa
+;you can use HOSTNAME to connect too
+;
+;SERVER:
+;    | HOSTNAME -> archserver
+;    | USER     -> Test
+;    | CODE     -> SecureCode
+;    | KEY      -> ~/.ssh/id_rsa
+;these presets are for your understanding
