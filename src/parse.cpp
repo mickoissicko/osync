@@ -100,7 +100,7 @@ int Parse(char* StartingDirectory)
 
             if (!KeyFile.is_open() || !TrackFile) std::exit((ThrowError("Error opening file", OPN_FILE)));
 
-            fprintf(TrackFile, "%s\n", Key);
+            fprintf(TrackFile, "%s%s\n", Key, DEF_FMT);
             KeyFile << Value << '\n';
 
             // key (arg) -> value (input)
