@@ -94,7 +94,7 @@ int Parse(char* StartingDirectory)
         {
             char KeyFileName[MAX_FILENAME_LENGTH];
 
-            snprintf(KeyFileName, sizeof(KeyFileName), "%s%s", Key, TXT);
+            snprintf(KeyFileName, sizeof(KeyFileName), "%s%s", Key, DEF_FORMAT);
 
             std::ofstream TrackFile(TRACK_FILE);
             std::ofstream KeyFile(KeyFileName);
