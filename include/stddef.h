@@ -22,11 +22,15 @@ static const char DEF_FMT[] = ".osync";
 // other
 #define PREF_DIR "config_attributes"
 #define TRACK_FILE "trackfile.txt"
+#define STD_SERVER_FOLDER "osyncd"
 #define CONFIG "config.osync"
 #define STD_FOLDER ".osync"
 
 // functions
 int ThrowError(char*, int);
+int ChangeDir(char*, int);
+void Server(char*);
+void Client(char*);
 int Parse(char*);
 
 #endif
