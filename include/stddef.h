@@ -2,7 +2,7 @@
 #define STDDEF_H
 
 // const strings
-static const char DEF_FORMAT[] = ".osync";
+static const char DEF_FMT[] = ".osync";
 
 // max
 #define MAX_FILENAME_LENGTH 4096
