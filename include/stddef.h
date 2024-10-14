@@ -21,7 +21,7 @@ static const char DEF_FMT[] = ".osync";
 
 // other
 #define PREF_DIR "config_attributes"
-#define TRACK_FILE "trackfiles.txt"
+#define TRACK_FILE "trackfile.txt"
 #define CONFIG "config.osync"
 #define STD_FOLDER ".osync"
 
