@@ -93,22 +93,22 @@ int Parse(char* StartingDirectory)
         for (const auto& [Key, Value] : ServerConfig)
         {
             char KeyFileName[MAX_FILENAME_LENGTH];
-
             snprintf(KeyFileName, sizeof(KeyFileName), "%s%s", Key, DEF_FMT);
 
-            std::ofstream TrackFile(TRACK_FILE);
+            FILE* TrackFile = fopen(TRACK_FILE, "a+");
             std::ofstream KeyFile(KeyFileName);
 
-            if (!KeyFile.is_open() || !TrackFile.is_open()) std::exit((ThrowError("Error opening file", OPN_FILE)));
+            if (!KeyFile.is_open() || !TrackFile) std::exit((ThrowError("Error opening file", OPN_FILE)));
 
-            TrackFile << Index << '\n';
+            fprintf(TrackFile, "%s\n", Key);
             KeyFile << Value << '\n';
 
             // key (arg) -> value (input)
             // std::cout << Key << ": " << Value << '\n';
 
-            TrackFile.close();
+            fclose(TrackFile);
             KeyFile.close();
+
             Index++;
         }
     }
