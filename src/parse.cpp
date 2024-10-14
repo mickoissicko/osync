@@ -66,7 +66,7 @@ void ProcessLine(const std::string& Line, std::unordered_map<std::string, std::s
 
 int Parse(char* StartingDirectory)
 {
-    if (chdir(StartingDirectory) != 0) std::exit((ThrowError("Could not change directory", OPN_DIR)));
+    ChangeDir(StartingDir, 1);
 
     int Index = 1;
 
@@ -88,7 +88,7 @@ int Parse(char* StartingDirectory)
         if (!std::filesystem::exists(PREF_DIR))
             if (!std::filesystem::create_directories(PREF_DIR)) std::exit((ThrowError("Error making dir", MK_DIR)));
 
-        if (chdir(PREF_DIR) != 0) std::exit((ThrowError("Error whilst changing directory", OPN_DIR)));
+        ChangeDir(PREF_DIR, 1);
 
         for (const auto& [Key, Value] : ServerConfig)
         {
