@@ -9,8 +9,7 @@
 
 int main(int argc, char* argv[])
 {
-    if (chdir(gethome()) != 0)
-        return (ThrowError("Error opening dir", OPN_DIR));
+    ChangeDir(gethome(), 1);
 
     std::cout << "Checking config file...\n";
 
@@ -18,8 +17,7 @@ int main(int argc, char* argv[])
         if (!std::filesystem::create_directories(STD_FOLDER))
             return (ThrowError("Error making dir", MK_DIR));
 
-    if (chdir(STD_FOLDER) != 0)
-        return (ThrowError("Error whilst opening dir"), OPN_DIR);
+    ChangeDir(STD_FOLDER, 1);
 
     std::cout << "Reading config...\n";
 
@@ -40,10 +38,19 @@ int main(int argc, char* argv[])
 
     char InitialDir[MAX_PATH_LENGTH];
 
-    snprintf(InitialDir, sizeof(InitialDir), "%s/%s/", gethome(), STD_FOLDER);
+    snprintf(InitialDir, sizeof(InitialDir), "%s/%s", gethome(), STD_FOLDER);
     Parse(InitialDir);
 
     Config.close();
+
+    char ServerDir[(MAX_PATH_LENGTH + strlen(STD_SERVER_FOLDER))];
+    snprintf(ServerDir, sizeof(ServerDir), "%s/%s", InitialDir, STD_SERVER_FOLDER);
+
+    char ParsedDir[(MAX_PATH_LENGTH + strlen(PREF_DIR))];
+    snprintf(ParsedDir, sizeof(ParsedDir), "%s/%s", InitialDir, PREF_DIR);
+
+    if (argc < 2) Client(ParsedDir);
+    if (!strcmp(argv[1], "--server")) Server(ServerDir);
 
     return 0;
 }
