@@ -4,7 +4,11 @@ OSync, or Obsidian Sync, is a free client to sync files between different comput
 --> Get [Obsidian](https://obsidian.md)
 
 # Usage
-`osyncd` may be run on a home server. Then you can use `osync` on your computers. Whilst you are making notes `osyncd` fetches the files and stores them on your server.
+`osync` (in daemon mode) may be run on a home server. Then you can use `osync` on your computers. Whilst you are making notes `osync` daemon fetches the files and stores them on your server.
+
+NOTE: To use `osync` in daemon mode, just run it with the argument `--server` like so:
+
+> `./osync --server`
 
 Then, whilst `osync` is running, you can type `fetch` to get the latest notes. They will be stored on your computer, and that's pretty much it!
 
@@ -23,4 +27,4 @@ As a precaution, run `sync` before leaving your computer as you may close `osync
 
 Change your directory to `build/` and run `make`.
 
-Two files will be generated: `osync` and `osyncd`.
+One file will be generated under the name `osync`.
