@@ -17,7 +17,7 @@ int ChangeDir(char Dir[], int UseHardMode)
 
 void Client(char StartingDir[])
 {
-    ChangeDir(StartingDir, 1);
+    Parse(StartingDir);
 
     // Host (e.g. 192.168.x.x)
     // Port (e.g. 80, 443, 8080)
@@ -31,5 +31,5 @@ void Server(char StartingDir[])
     ChangeDir(StartingDir, 1)
 
     // Port (e.g. 80, 443, 8080)
-    // Host (e.g. 0.0.0.0, 127.0.0.1, localhost)
+    // IP (e.g. 0.0.0.0, 127.0.0.1, localhost)
 }
