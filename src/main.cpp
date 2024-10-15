@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
     char InitialDir[MAX_PATH_LENGTH];
 
     snprintf(InitialDir, sizeof(InitialDir), "%s/%s", gethome(), STD_FOLDER);
-    Parse(InitialDir);
+    Tokenise(InitialDir);
 
     Config.close();
 
