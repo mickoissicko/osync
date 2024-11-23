@@ -280,7 +280,9 @@ void Client()
 }
 
 void Server()
-{}
+{
+    // TODO: Implement server
+}
 
 int main(int argc, char* argv[])
 {
