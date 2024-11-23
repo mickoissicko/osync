@@ -1,5 +1,5 @@
-#include "incl/stddef.hpp"
-#include "lib/gethome.h"
+#include "../incl/stddef.hpp"
+#include "../lib/gethome.h"
 #include <filesystem>
 #include <iostream>
 #include <unistd.h>
